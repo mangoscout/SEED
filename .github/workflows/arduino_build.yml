@@ -1,0 +1,30 @@
+name: Arduino Build
+
+on:
+  push:
+    paths:
+      - 'assignment-2/**.ino'
+      - 'mini-project/**.ino'
+  pull_request:
+    paths:
+      - 'assignment-2/**.ino'
+      - 'mini-project/**.ino'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Arduino CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+          arduino-cli config init
+
+      - name: Compile all sketches
+        run: |
+          for file in $(find assignment-2 mini-project -name "*.ino"); do
+            echo "Compiling $file"
+            arduino-cli compile --fqbn arduino:avr:uno "$file"
+          done
