@@ -1,0 +1,36 @@
+name: Raspberry Pi Python CI
+
+on:
+  push:
+    paths:
+      - 'assignment-2/**.py'
+      - 'mini-project/**.py'
+  pull_request:
+    paths:
+      - 'assignment-2/**.py'
+      - 'mini-project/**.py'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          for req in $(find assignment-2 mini-project -name "requirements.txt"); do
+            pip install -r "$req"
+          done
+
+      - name: Run Python scripts
+        run: |
+          for file in $(find assignment-2 mini-project -name "*.py"); do
+            echo "Testing $file"
+            python "$file"
+          done
