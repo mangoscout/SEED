@@ -1,2 +1,2 @@
 # Mini Project Code
-combined.py = CV team code
+miniDemo.py = CV team code
