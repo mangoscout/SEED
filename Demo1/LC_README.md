@@ -1,1 +1,7 @@
 
+# Mini Project Code
+Demo1_Documentation.ion = Localization and Controls team code
+
+Purpose: The purpose of this program is to control a two-wheel robot so it can rotate to a specific angle and move a certain distance. The robot uses wheel encoders to measure how much the wheels rotate and uses that information to control its movement. The desired angle and distance are written directly into the program, so when the robot is powered on it automatically turns to the specified angle and then moves forward the set distance. The robot receives commands -360 - 360 (inputted in the code by the user, TURN_DEGREES) then turns that number of degrees while the distance is inputted in commanded_distance_ft. The encoder counts are used to determine when the robot has reached the correct rotation or distance so the motors can stop accurately.
+
+Organization: The code is organized into a few main parts. First, the program defines the motor pins, encoder pins, and robot measurements such as wheel radius, wheel base, and encoder counts. Next, the program uses encoder interrupts to keep track of how much each wheel has rotated. There are also motor control functions that tell the motors which direction to spin and when to stop. The main movement functions then use the encoder counts to make the robot turn a certain number of degrees or move a certain distance. Finally, the setup() function prepares the robot when it turns on, and the loop() function waits for commands or runs the programmed movement.
