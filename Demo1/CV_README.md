@@ -1,5 +1,5 @@
 # Mini Project Code
-__.ion = Localization and Controls team code
+__ = Computer Vision team code
 
 Purpose: The purpose of this program is to calibrate a camera so that images captured by the system can be corrected for lens distortion. The program uses a chessboard calibration pattern to detect known reference points in multiple images, and by comparing the known positions of chessboard corners with their detected positions in the camera image, the program calculates the camera’s intrinsic parameters and distortion coefficients. These calibration parameters allow the system to correct distorted images and improve the accuracy of future algorithms. The calibration results are saved to a file so they can be reused without recalibrating the camera each time the system runs.
 
